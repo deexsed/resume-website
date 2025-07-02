@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Дмитрий Листьев</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Дмитрий Листьев</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Портфолио</a></li>
+                <li><a href="contact.html" class="nav-link">Контакты</a></li>
+                <li>
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun sun"></i>
+                        <i class="fas fa-moon moon"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title fade-in-up">Портфолио</h1>
+                <p class="page-subtitle fade-in-up">Мои проекты и работы</p>
+                <div class="portfolio-intro fade-in-up">
+                    <div class="portfolio-intro-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <blockquote class="portfolio-intro-quote">
+                        <span>Портфолио — это не просто список проектов, а отражение моего профессионального роста и страсти к новым технологиям.</span>
+                    </blockquote>
+                    <div class="portfolio-intro-text">
+                        <p>Я создаю проекты для личного развития, экспериментов и поиска новых решений.</p>
+                        <p>В каждом проекте — стремление к качеству, современным подходам и постоянному обучению.</p>
+                        <ul class="portfolio-intro-list">
+                            <li>Саморазвитие через практику</li>
+                            <li>Эксперименты с технологиями</li>
+                            <li>Открытость к новым инструментам</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Фильтры проектов -->
+    <section class="portfolio-filters">
+        <div class="container">
+            <div class="filters-content fade-in-up">
+                <h3>Фильтровать по технологии:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="cpp">C++</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="csharp">C#</button>
+                    <button class="filter-btn" data-filter="web">Веб</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section class="portfolio">
+        <div class="container">
+            <div class="portfolio-grid">
+                <div class="portfolio-item scroll-reveal" data-category="cpp">
+                    <div class="portfolio-content">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Сервер дорожных контроллеров</h3>
+                        <p>Разработка сервера для управления дорожными контроллерами с использованием современных протоколов связи и многопоточности.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag interactive">C++</span>
+                            <span class="tech-tag interactive">Qt</span>
+                            <span class="tech-tag interactive">TCP/IP</span>
+                        </div>
+                        <div class="portfolio-actions">
+                            <a href="https://github.com/deexsed" class="portfolio-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button class="portfolio-details-btn">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-reveal" data-category="python web">
+                    <div class="portfolio-content">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Веб-приложение для отладки</h3>
+                        <p>Разработка веб-приложения на Django для оперативной отладки тестируемой продукции 
+                        и получения информации со стендов.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag interactive">Python</span>
+                            <span class="tech-tag interactive">Django</span>
+                            <span class="tech-tag interactive">MySQL</span>
+                        </div>
+                        <div class="portfolio-actions">
+                            <a href="https://github.com/deexsed" class="portfolio-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button class="portfolio-details-btn">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-reveal" data-category="cpp">
+                    <div class="portfolio-content">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Встраиваемые модули</h3>
+                        <p>Разработка встраиваемых модулей для систем автоматизации с использованием 
+                        современных микроконтроллеров и протоколов связи.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag interactive">C++</span>
+                            <span class="tech-tag interactive">RS485</span>
+                            <span class="tech-tag interactive">Embedded</span>
+                        </div>
+                        <div class="portfolio-actions">
+                            <a href="https://github.com/deexsed" class="portfolio-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button class="portfolio-details-btn">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-reveal" data-category="csharp">
+                    <div class="portfolio-content">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Система управления базой данных</h3>
+                        <p>Создание системы управления и настройки базы данных для хранения информации 
+                        о дорожных контроллерах и их состоянии.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag interactive">C#</span>
+                            <span class="tech-tag interactive">.NET 8</span>
+                            <span class="tech-tag interactive">SQL</span>
+                        </div>
+                        <div class="portfolio-actions">
+                            <a href="https://github.com/deexsed" class="portfolio-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button class="portfolio-details-btn">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-reveal" data-category="cpp">
+                    <div class="portfolio-content">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Многопоточное приложение</h3>
+                        <p>Разработка многопоточного приложения с использованием Boost.Asio для 
+                        эффективной обработки сетевых соединений.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag interactive">C++21</span>
+                            <span class="tech-tag interactive">Boost.Asio</span>
+                            <span class="tech-tag interactive">Multithreading</span>
+                        </div>
+                        <div class="portfolio-actions">
+                            <a href="https://github.com/deexsed" class="portfolio-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button class="portfolio-details-btn">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-reveal" data-category="cpp">
+                    <div class="portfolio-content">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>GUI приложение на Qt</h3>
+                        <p>Создание графического интерфейса пользователя с использованием Qt5 
+                        для управления и мониторинга систем.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag interactive">Qt5</span>
+                            <span class="tech-tag interactive">C++</span>
+                            <span class="tech-tag interactive">GUI</span>
+                        </div>
+                        <div class="portfolio-actions">
+                            <a href="https://github.com/deexsed" class="portfolio-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button class="portfolio-details-btn">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub статистика -->
+    <section class="github-stats">
+        <div class="container">
+            <h2 class="section-title fade-in-up">GitHub статистика</h2>
+            <div class="stats-grid">
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>Репозитории</h3>
+                    <p>Активные проекты на GitHub</p>
+                    <a href="https://github.com/deexsed" class="btn btn-primary" target="_blank">
+                        Посмотреть профиль
+                    </a>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Технологии</h3>
+                    <p>C++, Python, C#, Qt, Django</p>
+                    <div class="tech-highlights">
+                        <span class="tech-highlight">C++</span>
+                        <span class="tech-highlight">Python</span>
+                        <span class="tech-highlight">C#</span>
+                    </div>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Проекты</h3>
+                    <p>Коммерческие и личные разработки</p>
+                    <div class="project-types">
+                        <span class="project-type">Коммерческие</span>
+                        <span class="project-type">Личные</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно для деталей проекта -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Название проекта</h2>
+                    <div class="modal-tech" id="modalTech"></div>
+                </div>
+                <div class="modal-description" id="modalDescription">
+                    <p>Описание проекта будет загружено...</p>
+                </div>
+                <div class="modal-features" id="modalFeatures">
+                    <h3>Основные функции:</h3>
+                    <ul id="modalFeaturesList"></ul>
+                </div>
+                <div class="modal-links">
+                    <a href="#" class="btn btn-primary" id="modalGitHub" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-envelope"></i> listev.2002@ya.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Дмитрий Листьев. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html> 

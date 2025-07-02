@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дмитрий Листьев - Программист C++</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Дмитрий Листьев</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
+                <li><a href="contact.html" class="nav-link">Контакты</a></li>
+                <li>
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun sun"></i>
+                        <i class="fas fa-moon moon"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная секция -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Дмитрий Листьев</h1>
+                    <h2 class="hero-subtitle fade-in-up">Программист C++</h2>
+                    <p class="hero-description fade-in-up">
+                        Разработчик с опытом создания сложных систем, серверов и встраиваемых модулей. 
+                        Специализируюсь на C++, Qt, многопоточности и сетевом программировании.
+                    </p>
+                    <div class="hero-buttons fade-in-up">
+                        <a href="about.html" class="btn btn-primary">Узнать больше</a>
+                        <a href="contact.html" class="btn btn-secondary">Связаться</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card scale-in">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Основные навыки</h3>
+                            <div class="skills-grid">
+                                <span class="skill-tag interactive">C++</span>
+                                <span class="skill-tag interactive">Qt</span>
+                                <span class="skill-tag interactive">Boost</span>
+                                <span class="skill-tag interactive">MySQL</span>
+                                <span class="skill-tag interactive">Linux</span>
+                                <span class="skill-tag interactive">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Краткая информация -->
+    <section class="overview">
+        <div class="container">
+            <h2 class="section-title">Краткая информация</h2>
+            <div class="overview-grid">
+                <div class="overview-item scroll-reveal">
+                    <div class="overview-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Обо мне</h3>
+                    <p>Программист C++ с опытом разработки сложных систем, серверов и встраиваемых модулей. 
+                    Специализируюсь на многопоточности и сетевом программировании.</p>
+                    <a href="about.html" class="btn btn-secondary">Подробнее</a>
+                </div>
+                
+                <div class="overview-item scroll-reveal">
+                    <div class="overview-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Опыт работы</h3>
+                    <p>Инженер-программист в АО "СИСТЕМА-ЦЕНТР" и C++ разработчик в Болид, НВП, ЗАО. 
+                    Опыт работы с Qt, Boost, MySQL и Django.</p>
+                    <a href="about.html" class="btn btn-secondary">Подробнее</a>
+                </div>
+                
+                <div class="overview-item scroll-reveal">
+                    <div class="overview-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Портфолио</h3>
+                    <p>Разработка серверов дорожных контроллеров, веб-приложений на Django, 
+                    встраиваемых модулей и многопоточных приложений.</p>
+                    <a href="portfolio.html" class="btn btn-secondary">Подробнее</a>
+                </div>
+                
+                <div class="overview-item scroll-reveal">
+                    <div class="overview-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Контакты</h3>
+                    <p>Готов к обсуждению новых проектов. Свяжитесь со мной для сотрудничества 
+                    или получения дополнительной информации.</p>
+                    <a href="contact.html" class="btn btn-secondary">Связаться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основные навыки -->
+    <section class="skills-overview">
+        <div class="container">
+            <h2 class="section-title">Основные навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-category scroll-reveal">
+                    <h3>Языки программирования</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag interactive">C++</span>
+                        <span class="skill-tag interactive">Python</span>
+                        <span class="skill-tag interactive">C#</span>
+                    </div>
+                </div>
+                <div class="skill-category scroll-reveal">
+                    <h3>Фреймворки и библиотеки</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag interactive">Qt</span>
+                        <span class="skill-tag interactive">Boost</span>
+                        <span class="skill-tag interactive">Django</span>
+                        <span class="skill-tag interactive">OpenCV</span>
+                    </div>
+                </div>
+                <div class="skill-category scroll-reveal">
+                    <h3>Базы данных</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag interactive">MySQL</span>
+                        <span class="skill-tag interactive">SQLite</span>
+                    </div>
+                </div>
+                <div class="skill-category scroll-reveal">
+                    <h3>Инструменты</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag interactive">Git</span>
+                        <span class="skill-tag interactive">CMake</span>
+                        <span class="skill-tag interactive">Visual Studio</span>
+                        <span class="skill-tag interactive">GCC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Быстрые контакты -->
+    <section class="quick-contact">
+        <div class="container">
+            <h2 class="section-title">Быстрые контакты</h2>
+            <div class="contact-cards">
+                <div class="contact-card scroll-reveal">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>listev.2002@ya.ru</p>
+                    <a href="mailto:listev.2002@ya.ru" class="btn btn-outline">Написать</a>
+                </div>
+                <div class="contact-card scroll-reveal">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>github.com/deexsed</p>
+                    <a href="https://github.com/deexsed" class="btn btn-outline" target="_blank">Профиль</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-envelope"></i> listev.2002@ya.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Дмитрий Листьев. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html> 

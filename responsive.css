@@ -1,0 +1,1086 @@
+/* Адаптивность для сайта */
+
+/* Большие экраны (1200px и больше) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* Планшеты и средние экраны (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .skills-grid-detailed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero {
+        padding-top: 110px !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .overview,
+    .skills-overview,
+    .quick-contact,
+    .portfolio,
+    .github-stats {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .hero-buttons {
+        justify-content: center !important;
+        flex-direction: row !important;
+        text-align: center !important;
+    }
+}
+
+/* Планшеты (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .intro-features {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .education-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .education-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profile-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .skill-tag:hover,
+    .skill-item:hover,
+    .skill-list .skill-item:hover {
+        transform: scale(1.02) !important;
+        box-shadow: 0 2px 8px 0 rgba(115, 103, 240, 0.15) !important;
+    }
+    
+    .overview-item:hover,
+    .contact-card:hover,
+    .portfolio-item:hover,
+    .stat-item:hover,
+    .info-card:hover,
+    .extra-item:hover {
+        transform: scale(1.01) !important;
+        box-shadow: 0 2px 8px 0 rgba(115, 103, 240, 0.10) !important;
+        border-color: var(--primary-color) !important;
+    }
+    
+    .theme-toggle {
+        width: 48px !important;
+        height: 28px !important;
+        min-width: 48px !important;
+        min-height: 28px !important;
+        padding: 0 4px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    
+    .theme-toggle i.sun, .theme-toggle i.moon {
+        font-size: 18px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        pointer-events: none !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 auto !important;
+    }
+    
+    .theme-toggle::before {
+        width: 20px !important;
+        height: 20px !important;
+        top: 4px !important;
+        left: 4px !important;
+    }
+    
+    [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(20px);
+    }
+}
+
+/* Мобильные устройства (до 767px) */
+@media (max-width: 767px) {
+    /* Навигация */
+    .nav-container {
+        padding: 0 15px;
+        height: 60px;
+    }
+    
+    .nav-logo a {
+        font-size: 1.3rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border-color);
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Главная секция */
+    .hero {
+        padding-top: 110px !important;
+        padding-bottom: 1rem !important;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-container {
+        padding: 0 15px;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+    
+    /* Профильная карточка */
+    .profile-card {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+    
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .profile-avatar i {
+        font-size: 1.5rem;
+    }
+    
+    /* Секции */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .overview {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .overview-item {
+        padding: 1.5rem;
+    }
+    
+    .skills-overview {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skill-category {
+        padding: 1.5rem;
+    }
+    
+    .quick-contact {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 2rem;
+    }
+    
+    /* Портфолио */
+    .portfolio {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .portfolio-item {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .portfolio-link, .portfolio-details-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Фильтры портфолио */
+    .filter-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    /* GitHub статистика */
+    .github-stats {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 1.5rem;
+    }
+    
+    /* Страница "Обо мне" */
+    .page-header {
+        padding-top: 80px;
+        padding-bottom: 2rem;
+    }
+    
+    .header-stats {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .header-stats .stat-item {
+        min-width: auto;
+        padding: 1rem;
+    }
+    
+    .header-stats .stat-number {
+        font-size: 2rem;
+    }
+    
+    .about-intro {
+        padding: 3rem 0;
+    }
+    
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .intro-text h2 {
+        font-size: 2rem;
+    }
+    
+    .intro-text p {
+        font-size: 1rem;
+    }
+    
+    .intro-features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-item {
+        padding: 0.8rem;
+    }
+    
+    .education {
+        padding: 3rem 0;
+    }
+    
+    .education-card {
+        padding: 1.5rem;
+        margin: 0 15px;
+    }
+    
+    .education-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .education-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .education-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .education-details {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .skills-detailed {
+        padding: 3rem 0;
+    }
+    
+    .skills-grid-detailed {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skill-category-detailed {
+        padding: 1.5rem;
+    }
+    
+    .skill-item-detailed {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .skill-name {
+        min-width: auto;
+        font-size: 0.9rem;
+    }
+    
+    .experience {
+        padding: 3rem 0;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .timeline-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .timeline-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .additional-info {
+        padding: 3rem 0;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    /* Страница контактов */
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+        
+    .contact-extra {
+        padding: 3rem 0;
+    }
+    
+    .extra-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .extra-item {
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    /* Модальное окно */
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    /* Футер */
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        text-align: center;
+    }
+    
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Переключатель темы */
+    .theme-toggle {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+    
+    .theme-toggle i.sun {
+        position: absolute !important;
+        left: 2px !important;
+        top: 2px !important;
+        width: 24px !important;
+        height: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 16px !important;
+        pointer-events: none !important;
+        transition: opacity 0.3s;
+        opacity: 1 !important;
+    }
+    
+    .theme-toggle i.moon {
+        position: absolute !important;
+        right: 2px !important;
+        top: 2px !important;
+        width: 24px !important;
+        height: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 16px !important;
+        pointer-events: none !important;
+        transition: opacity 0.3s;
+        opacity: 0 !important;
+    }
+    
+    [data-theme="dark"] .theme-toggle i.sun {
+        opacity: 0 !important;
+    }
+    [data-theme="dark"] .theme-toggle i.moon {
+        opacity: 1 !important;
+    }
+    [data-theme="light"] .theme-toggle i.sun {
+        opacity: 1 !important;
+    }
+    [data-theme="light"] .theme-toggle i.moon {
+        opacity: 0 !important;
+    }
+    
+    .skill-tag:hover,
+    .skill-item:hover,
+    .skill-list .skill-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    
+    .overview-item:hover,
+    .contact-card:hover,
+    .portfolio-item:hover,
+    .stat-item:hover,
+    .info-card:hover,
+    .extra-item:hover {
+        transform: scale(1.005) !important;
+        box-shadow: 0 1px 4px 0 rgba(115, 103, 240, 0.08) !important;
+        border-color: var(--primary-color) !important;
+    }
+}
+
+/* Очень маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .nav-container {
+        padding: 0 10px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .profile-card {
+        padding: 1rem;
+        max-width: 280px;
+    }
+    
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .profile-avatar i {
+        font-size: 1.25rem;
+    }
+    
+    .overview-item {
+        padding: 1rem;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-item {
+        padding: 1rem;
+    }
+    
+    .portfolio-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .portfolio-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .stat-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .education-card {
+        padding: 1rem;
+        margin: 0 10px;
+    }
+    
+    .skill-category-detailed {
+        padding: 1rem;
+    }
+    
+    .info-card {
+        padding: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .skill-tag, .skill-item {
+        font-size: 0.8rem;
+        padding: 0.4em 1em;
+    }
+    
+    .tech-tag.interactive {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Ландшафтная ориентация на мобильных */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+    
+    .hero-content {
+        gap: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .overview, .skills-overview, .quick-contact, .portfolio, .github-stats {
+        padding: 2rem 0;
+    }
+    
+    .about-intro, .education, .skills-detailed, .experience, .additional-info {
+        padding: 2rem 0;
+    }
+}
+
+/* Высокие экраны (высота больше 800px) */
+@media (min-height: 800px) {
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .page-header {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Поддержка устройств с высоким DPI */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero::before {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="grain-hd" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="100" cy="100" r="2" fill="white" opacity="0.05"/></pattern></defs><rect width="200" height="200" fill="url(%23grain-hd)"/></svg>');
+    }
+}
+
+/* Поддержка устройств с сенсорным экраном */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover,
+    .nav-link:hover,
+    .skill-tag:hover,
+    .portfolio-item:hover,
+    .overview-item:hover,
+    .contact-card:hover {
+        transform: none;
+    }
+    
+    .btn:active,
+    .nav-link:active,
+    .skill-tag:active,
+    .portfolio-item:active,
+    .overview-item:active,
+    .contact-card:active {
+        transform: scale(0.98);
+    }
+    
+    .theme-toggle:hover {
+        transform: none;
+    }
+    
+    .theme-toggle:active {
+        transform: scale(0.95);
+    }
+}
+
+
+
+/* Поддержка устройств с уменьшенным движением */
+@media (prefers-reduced-motion: reduce) {
+    .hero-title,
+    .hero-subtitle,
+    .hero-description,
+    .hero-buttons,
+    .fade-in-up,
+    .fade-in-left,
+    .fade-in-right,
+    .scale-in,
+    .slide-in-top {
+        animation: none;
+    }
+    
+    .btn::before,
+    .skill-tag::before,
+    .skill-item::before {
+        display: none;
+    }
+    
+    .profile-card {
+        animation: none;
+    }
+    
+    .skill-progress {
+        transition: none;
+    }
+}
+
+/* Поддержка устройств с высоким контрастом */
+@media (prefers-contrast: high) {
+    .btn {
+        border: 2px solid currentColor;
+    }
+    
+    .skill-tag,
+    .tech-tag.interactive {
+        border: 2px solid currentColor;
+    }
+    
+    .portfolio-item,
+    .overview-item,
+    .contact-card {
+        border: 2px solid var(--border-color);
+    }
+}
+
+
+
+/* Дополнительные стили для очень больших экранов */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+    }
+    
+    .overview-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .contact-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Стили для печати */
+@media print {
+    .navbar,
+    .hamburger,
+    .theme-toggle,
+    .hero-buttons,
+    .portfolio-actions,
+    .contact-form,
+    .footer {
+        display: none !important;
+    }
+    
+    .hero {
+        background: white !important;
+        color: black !important;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    
+    .hero-title,
+    .hero-subtitle,
+    .hero-description {
+        color: black !important;
+    }
+    
+    .section-title {
+        color: black !important;
+    }
+    
+    .overview-item,
+    .contact-card,
+    .portfolio-item,
+    .skill-category,
+    .timeline-content,
+    .info-card {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+    
+    .page-header {
+        background: white !important;
+        color: black !important;
+        padding-top: 2rem;
+    }
+    
+    .page-title,
+    .page-subtitle {
+        color: black !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    * {
+        box-shadow: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+  .portfolio-intro-list {
+    max-width: 100%;
+    gap: 0.5rem;
+  }
+  .portfolio-intro-list li {
+    font-size: 0.97rem;
+    padding: 0.6em 0.7em;
+    min-width: 120px;
+    max-width: 100%;
+  }
+} 

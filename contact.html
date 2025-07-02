@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Дмитрий Листьев</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        emailjs.init('vd8RF_2wlQmlxdyQa'); // Замените на свой user_id из EmailJS
+      });
+    </script>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Дмитрий Листьев</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
+                <li><a href="contact.html" class="nav-link active">Контакты</a></li>
+                <li>
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun sun"></i>
+                        <i class="fas fa-moon moon"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Контакты</h1>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Контактная информация</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>listev.2002@ya.ru</p>
+                            <a href="mailto:listev.2002@ya.ru" class="contact-link">Написать письмо</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>github.com/deexsed</p>
+                            <a href="https://github.com/deexsed" class="contact-link" target="_blank">Посмотреть профиль</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Локация</h3>
+                            <p>Орел, Россия</p>
+                            <p>Готов к удаленной работе</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Отправить сообщение</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Тема</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дополнительная информация -->
+    <section class="contact-extra">
+        <div class="container">
+            <div class="contact-extra-banner">
+                <div class="extra-info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="extra-info-text">
+                        <span class="extra-title">Время ответа</span>
+                        <span class="extra-desc">Обычно отвечаю в течение 24 часов</span>
+                    </div>
+                </div>
+                <div class="extra-divider"></div>
+                <div class="extra-info-item">
+                    <i class="fas fa-calendar"></i>
+                    <div class="extra-info-text">
+                        <span class="extra-title">Доступность</span>
+                        <span class="extra-desc">Готов к обсуждению проектов в любое время</span>
+                    </div>
+                </div>
+                <div class="extra-divider"></div>
+                <div class="extra-info-item">
+                    <i class="fas fa-handshake"></i>
+                    <div class="extra-info-text">
+                        <span class="extra-title">Сотрудничество</span>
+                        <span class="extra-desc">Открыт к новым проектам и предложениям</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-envelope"></i> listev.2002@ya.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Дмитрий Листьев. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html> 
