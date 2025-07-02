@@ -29,12 +29,6 @@
                 <li><a href="about.html" class="nav-link">Обо мне</a></li>
                 <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
                 <li><a href="contact.html" class="nav-link active">Контакты</a></li>
-                <li>
-                    <div class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-sun sun"></i>
-                        <i class="fas fa-moon moon"></i>
-                    </div>
-                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -46,8 +40,20 @@
 
     <!-- Заголовок страницы -->
     <section class="page-header">
+        <div class="video-overlay"></div>
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
         <div class="container">
-            <h1 class="page-title">Контакты</h1>
+            <h1 class="page-title gradient-text">Контакты</h1>
         </div>
     </section>
 
@@ -57,24 +63,30 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>Контактная информация</h2>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                    <div class="contact-item enhanced-card">
+                        <div class="tech-illustration">
+                            <i class="fas fa-envelope animated-icon"></i>
+                        </div>
                         <div>
                             <h3>Email</h3>
                             <p>listev.2002@ya.ru</p>
                             <a href="mailto:listev.2002@ya.ru" class="contact-link">Написать письмо</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
+                    <div class="contact-item enhanced-card">
+                        <div class="tech-illustration">
+                            <i class="fab fa-github animated-icon"></i>
+                        </div>
                         <div>
                             <h3>GitHub</h3>
                             <p>github.com/deexsed</p>
                             <a href="https://github.com/deexsed" class="contact-link" target="_blank">Посмотреть профиль</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-item enhanced-card">
+                        <div class="tech-illustration">
+                            <i class="fas fa-map-marker-alt animated-icon"></i>
+                        </div>
                         <div>
                             <h3>Локация</h3>
                             <p>Орел, Россия</p>
@@ -83,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="contact-form">
+                <div class="contact-form enhanced-card">
                     <h2>Отправить сообщение</h2>
                     <form id="contactForm">
                         <div class="form-group">
@@ -102,7 +114,7 @@
                             <label for="message">Сообщение *</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                        <button type="submit" class="btn btn-gradient">Отправить сообщение</button>
                     </form>
                 </div>
             </div>

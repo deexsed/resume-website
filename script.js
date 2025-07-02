@@ -515,74 +515,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Поддержка темной темы (опционально)
-
-
-// Переменная для отслеживания состояния переключения
-let isThemeTransitioning = false;
-
-// Функция для переключения темы
-function toggleTheme() {
-    // Защита от быстрых кликов
-    if (isThemeTransitioning) {
-        return;
-    }
-    
-    isThemeTransitioning = true;
-    
-    const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    // Добавляем класс для анимации перехода
-    html.classList.add('theme-transitioning');
-    
-    // Применяем новую тему
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Обновляем иконку переключателя
-    updateThemeIcon(newTheme);
-    
-    // Показываем уведомление о смене темы
-    const themeText = newTheme === 'dark' ? 'Темная тема' : 'Светлая тема';
-    showNotification(`${themeText} включена!`);
-    
-    // Убираем класс анимации и разрешаем новые переключения
-    setTimeout(() => {
-        html.classList.remove('theme-transitioning');
-        isThemeTransitioning = false;
-    }, 300);
-}
-
-// Функция для обновления иконки переключателя
-function updateThemeIcon(theme) {
-    const sunIcon = document.querySelector('.theme-toggle .sun');
-    const moonIcon = document.querySelector('.theme-toggle .moon');
-    
-    if (theme === 'dark') {
-        sunIcon.style.opacity = '0';
-        moonIcon.style.opacity = '1';
-    } else {
-        sunIcon.style.opacity = '1';
-        moonIcon.style.opacity = '0';
-    }
-}
-
-// Функция для инициализации темы
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    
-    // Определяем тему по умолчанию
-    let defaultTheme = savedTheme || 'light';
-    
-    // Применяем тему
-    document.documentElement.setAttribute('data-theme', defaultTheme);
-    updateThemeIcon(defaultTheme);
-}
-
-// Функция для мобильного меню (удалена дублирующая функциональность)
-
 // Функция для плавной прокрутки к секциям
 function smoothScrollTo(target) {
     const element = document.querySelector(target);
@@ -633,17 +565,6 @@ function updateActiveNavLink() {
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализируем тему
-    initTheme();
-    
-    // Добавляем обработчик для переключателя темы
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    
-    // Обработчик для мобильного меню уже добавлен выше
-    
     // Добавляем обработчики для плавной прокрутки
     const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
     navLinks.forEach(link => {
@@ -670,8 +591,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Запускаем анимацию при загрузке
     animateOnScroll();
-    
-
 });
 
 // Функция для отправки формы контактов
@@ -783,59 +702,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Интерактивные анимации и эффекты
 
-// Анимация появления элементов при скролле
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-                entry.target.classList.add('revealed');
-            }
-        });
-    }, observerOptions);
 
-    // Наблюдение за элементами
-    const animateElements = document.querySelectorAll(
-        '.overview-item, .contact-card, .portfolio-item, .skill-category, .timeline-item, .stat-item'
-    );
-    
-    animateElements.forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.1}s`;
-        observer.observe(el);
-    });
-}
-
-// Анимация счетчиков
-function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000; // 2 секунды
-        const increment = target / (duration / 16); // 60 FPS
-        let current = 0;
-        
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target;
-                counter.classList.add('animate');
-            }
-        };
-        
-        updateCounter();
-    });
-}
 
 // Параллакс эффект для фона
 function initParallax() {
@@ -883,9 +752,11 @@ function animateGradient() {
 
 // Анимация для карточек с 3D эффектом
 function init3DCards() {
-    const cards = document.querySelectorAll('.overview-item, .contact-card, .portfolio-item');
+    const cards = document.querySelectorAll('.enhanced-card');
     
     cards.forEach(card => {
+        // Исключаем .profile-card из 3D-эффекта
+        if (card.classList.contains('profile-card')) return;
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -894,8 +765,8 @@ function init3DCards() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
+            const rotateX = (y - centerY) / 50;
+            const rotateY = (centerX - x) / 50;
             
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
         });
@@ -1132,8 +1003,6 @@ document.addEventListener('DOMContentLoaded', function() {
     createParticles();
     animateGradient();
     
-
-    
     // Анимация счетчиков при появлении в поле зрения
     const statsSection = document.querySelector('.stats-section');
     if (statsSection) {
@@ -1330,4 +1199,189 @@ document.addEventListener('click', function(event) {
     // Закрываем меню
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
+});
+
+// Создание частиц
+function createParticles() {
+    const particlesContainer = document.querySelector('.particles');
+    if (!particlesContainer) return;
+    
+    const particleCount = 20;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Случайное позиционирование
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Анимация градиентного фона
+function animateGradientBackground() {
+    const gradientElements = document.querySelectorAll('.animated-bg');
+    
+    gradientElements.forEach(element => {
+        let hue = 0;
+        
+        setInterval(() => {
+            hue = (hue + 1) % 360;
+            element.style.background = `linear-gradient(-45deg, 
+                hsl(${hue}, 70%, 60%), 
+                hsl(${hue + 60}, 70%, 60%), 
+                hsl(${hue + 120}, 70%, 60%), 
+                hsl(${hue}, 70%, 60%))`;
+            element.style.backgroundSize = '400% 400%';
+        }, 50);
+    });
+}
+
+// Анимация иконок
+function animateIcons() {
+    const icons = document.querySelectorAll('.animated-icon');
+    
+    icons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+            icon.style.transform = 'scale(1.2) rotate(10deg)';
+        });
+        
+        icon.addEventListener('mouseleave', () => {
+            icon.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+}
+
+// Анимация градиентного текста
+function animateGradientText() {
+    const gradientTexts = document.querySelectorAll('.gradient-text');
+    
+    gradientTexts.forEach(text => {
+        let hue = 0;
+        
+        setInterval(() => {
+            hue = (hue + 1) % 360;
+            text.style.background = `linear-gradient(135deg, 
+                hsl(${hue}, 70%, 60%), 
+                hsl(${hue + 60}, 70%, 60%), 
+                hsl(${hue + 120}, 70%, 60%))`;
+            text.style.webkitBackgroundClip = 'text';
+            text.style.webkitTextFillColor = 'transparent';
+            text.style.backgroundClip = 'text';
+        }, 100);
+    });
+}
+
+// Анимация кнопок с градиентом
+function animateGradientButtons() {
+    const gradientButtons = document.querySelectorAll('.btn-gradient');
+    
+    gradientButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.background = 'linear-gradient(135deg, #8b5cf6, #06b6d4, #3b82f6)';
+            button.style.backgroundSize = '200% 200%';
+            button.style.animation = 'gradientShift 1s ease infinite';
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            button.style.background = 'linear-gradient(135deg, #3b82f6, #8b5cf6)';
+            button.style.animation = 'none';
+        });
+    });
+}
+
+// Анимация прогресс-баров навыков
+function animateSkillProgress() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    skillBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        if (progress) {
+            setTimeout(() => {
+                bar.style.width = progress + '%';
+                bar.style.background = 'linear-gradient(90deg, #3b82f6, #8b5cf6)';
+            }, 500);
+        }
+    });
+}
+
+// Анимация счетчиков
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+                counter.style.color = '#3b82f6';
+                counter.style.transform = 'scale(1.1)';
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Инициализация всех анимаций
+document.addEventListener('DOMContentLoaded', function() {
+    // Создаем частицы
+    createParticles();
+    
+    // Анимируем градиентные фоны
+    animateGradientBackground();
+    
+    // Анимируем иконки
+    animateIcons();
+    
+    // Инициализируем 3D карточки
+    init3DCards();
+    
+    // Анимируем градиентный текст
+    animateGradientText();
+    
+    // Анимируем градиентные кнопки
+    animateGradientButtons();
+    
+    // Анимируем прогресс-бары навыков
+    const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkillProgress();
+                skillsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    const skillsSection = document.querySelector('.skills-detailed');
+    if (skillsSection) {
+        skillsObserver.observe(skillsSection);
+    }
+    
+    // Анимируем счетчики
+    const countersObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                countersObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    const statsSection = document.querySelector('.header-stats');
+    if (statsSection) {
+        countersObserver.observe(statsSection);
+    }
 }); 

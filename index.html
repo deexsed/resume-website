@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -22,12 +22,6 @@
                 <li><a href="about.html" class="nav-link">Обо мне</a></li>
                 <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
                 <li><a href="contact.html" class="nav-link">Контакты</a></li>
-                <li>
-                    <div class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-sun sun"></i>
-                        <i class="fas fa-moon moon"></i>
-                    </div>
-                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -39,25 +33,37 @@
 
     <!-- Главная секция -->
     <section id="home" class="hero">
+        <div class="video-overlay"></div>
+        
+        <!-- Анимированные частицы -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Дмитрий Листьев</h1>
+                    <h1 class="hero-title gradient-text">Дмитрий Листьев</h1>
                     <h2 class="hero-subtitle fade-in-up">Программист C++</h2>
                     <p class="hero-description fade-in-up">
                         Разработчик с опытом создания сложных систем, серверов и встраиваемых модулей. 
                         Специализируюсь на C++, Qt, многопоточности и сетевом программировании.
                     </p>
                     <div class="hero-buttons fade-in-up">
-                        <a href="about.html" class="btn btn-primary">Узнать больше</a>
+                        <a href="about.html" class="btn btn-gradient">Узнать больше</a>
                         <a href="contact.html" class="btn btn-secondary">Связаться</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="profile-card scale-in">
-                        <div class="profile-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
+                    <div class="profile-card scale-in enhanced-card">
                         <div class="profile-info">
                             <h3>Основные навыки</h3>
                             <div class="skills-grid">
@@ -76,48 +82,48 @@
     </section>
 
     <!-- Краткая информация -->
-    <section class="overview">
+    <section class="overview pattern-bg">
         <div class="container">
             <h2 class="section-title">Краткая информация</h2>
             <div class="overview-grid">
-                <div class="overview-item scroll-reveal">
+                <div class="overview-item scroll-reveal enhanced-card">
                     <div class="overview-icon">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user animated-icon"></i>
                     </div>
                     <h3>Обо мне</h3>
                     <p>Программист C++ с опытом разработки сложных систем, серверов и встраиваемых модулей. 
                     Специализируюсь на многопоточности и сетевом программировании.</p>
-                    <a href="about.html" class="btn btn-secondary">Подробнее</a>
+                    <a href="about.html" class="btn btn-gradient">Подробнее</a>
                 </div>
                 
-                <div class="overview-item scroll-reveal">
+                <div class="overview-item scroll-reveal enhanced-card">
                     <div class="overview-icon">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-briefcase animated-icon"></i>
                     </div>
                     <h3>Опыт работы</h3>
                     <p>Инженер-программист в АО "СИСТЕМА-ЦЕНТР" и C++ разработчик в Болид, НВП, ЗАО. 
                     Опыт работы с Qt, Boost, MySQL и Django.</p>
-                    <a href="about.html" class="btn btn-secondary">Подробнее</a>
+                    <a href="about.html" class="btn btn-gradient">Подробнее</a>
                 </div>
                 
-                <div class="overview-item scroll-reveal">
+                <div class="overview-item scroll-reveal enhanced-card">
                     <div class="overview-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-code animated-icon"></i>
                     </div>
                     <h3>Портфолио</h3>
                     <p>Разработка серверов дорожных контроллеров, веб-приложений на Django, 
                     встраиваемых модулей и многопоточных приложений.</p>
-                    <a href="portfolio.html" class="btn btn-secondary">Подробнее</a>
+                    <a href="portfolio.html" class="btn btn-gradient">Подробнее</a>
                 </div>
                 
-                <div class="overview-item scroll-reveal">
+                <div class="overview-item scroll-reveal enhanced-card">
                     <div class="overview-icon">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope animated-icon"></i>
                     </div>
                     <h3>Контакты</h3>
                     <p>Готов к обсуждению новых проектов. Свяжитесь со мной для сотрудничества 
                     или получения дополнительной информации.</p>
-                    <a href="contact.html" class="btn btn-secondary">Связаться</a>
+                    <a href="contact.html" class="btn btn-gradient">Связаться</a>
                 </div>
             </div>
         </div>
@@ -166,18 +172,22 @@
     </section>
 
     <!-- Быстрые контакты -->
-    <section class="quick-contact">
+    <section class="quick-contact animated-bg">
         <div class="container">
             <h2 class="section-title">Быстрые контакты</h2>
             <div class="contact-cards">
-                <div class="contact-card scroll-reveal">
-                    <i class="fas fa-envelope"></i>
+                <div class="contact-card scroll-reveal enhanced-card">
+                    <div class="tech-illustration">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <h3>Email</h3>
                     <p>listev.2002@ya.ru</p>
                     <a href="contact.html#contactForm" class="btn btn-outline">Написать</a>
                 </div>
-                <div class="contact-card scroll-reveal">
-                    <i class="fab fa-github"></i>
+                <div class="contact-card scroll-reveal enhanced-card">
+                    <div class="tech-illustration">
+                        <i class="fab fa-github"></i>
+                    </div>
                     <h3>GitHub</h3>
                     <p>github.com/deexsed</p>
                     <a href="https://github.com/deexsed" class="btn btn-outline" target="_blank">Профиль</a>
