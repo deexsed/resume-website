@@ -117,13 +117,20 @@ body {
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-logo a:hover {
-    color: var(--primary-hover);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.05);
 }
 
 .nav-menu {
@@ -362,15 +369,33 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
     box-shadow: var(--shadow-md);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    background: var(--primary-hover);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
 }
 
 .btn-secondary {
@@ -463,10 +488,11 @@ body {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 80px;
     height: 4px;
-    background: var(--gradient-primary);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 /* Секции */
@@ -502,14 +528,21 @@ body {
 }
 
 .overview-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+}
+
+.overview-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 .overview-icon i {
@@ -624,8 +657,16 @@ body {
 
 .contact-card i {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover i {
+    transform: scale(1.1);
 }
 
 .contact-card h3 {
@@ -871,8 +912,8 @@ body {
 }
 
 .portfolio-icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 1rem;
     display: flex;
@@ -880,6 +921,7 @@ body {
     justify-content: center;
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .portfolio-icon i {
@@ -889,7 +931,7 @@ body {
 
 .portfolio-item:hover .portfolio-icon {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 .portfolio-content h3 {
@@ -946,7 +988,10 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -956,10 +1001,13 @@ body {
 }
 
 .portfolio-link:hover {
-    background: var(--primary-color);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .portfolio-details-btn {
@@ -1031,8 +1079,8 @@ body {
 }
 
 .stat-icon {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
     display: flex;
@@ -1040,16 +1088,17 @@ body {
     justify-content: center;
     margin: 0 auto 1.5rem;
     transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
 }
 
 .stat-icon i {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: white;
 }
 
 .stat-item:hover .stat-icon {
     transform: scale(1.1) rotate(10deg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
 }
 
 .stat-item h3 {
@@ -1119,17 +1168,24 @@ body {
 }
 
 .close {
-    color: var(--text-secondary);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     float: right;
     font-size: 2rem;
     font-weight: bold;
     padding: 1rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .close:hover {
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.1);
 }
 
 .modal-body {
@@ -1224,11 +1280,16 @@ html {
 }
 
 .nav-link.active {
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
 }
 
 .nav-link.active::after {
     width: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
 
@@ -1272,8 +1333,16 @@ html {
 }
 
 .footer-section i {
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     width: 16px;
+    transition: all 0.3s ease;
+}
+
+.footer-section:hover i {
+    transform: scale(1.1);
 }
 
 .footer-bottom {
@@ -1374,8 +1443,16 @@ html {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.header-stats .stat-item:hover .stat-number {
+    transform: scale(1.1);
 }
 
 .header-stats .stat-label {
@@ -1402,46 +1479,133 @@ html {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.intro-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+.intro-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
 }
 
-.intro-features {
+.intro-highlights {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
-.feature-item {
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.highlight-item:hover::before {
+    transform: scaleX(1);
+}
+
+.highlight-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.highlight-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover .highlight-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.highlight-icon i {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.highlight-content h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.intro-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.stat-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
     background: var(--card-bg);
     border-radius: 12px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    min-width: 80px;
 }
 
-.feature-item:hover {
+.stat-badge:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
     border-color: var(--primary-color);
 }
 
-.feature-item i {
+.stat-badge .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--primary-color);
-    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
 }
 
-.feature-item span {
+.stat-badge .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
     font-weight: 500;
-    color: var(--text-primary);
+    text-align: center;
 }
 
 /* Профильная витрина */
@@ -1534,18 +1698,25 @@ html {
 }
 
 .education-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient-primary);
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+}
+
+.education-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
 }
 
 .education-icon i {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: white;
 }
 
@@ -1634,8 +1805,16 @@ html {
 }
 
 .skill-header i {
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-header:hover i {
+    transform: scale(1.1);
 }
 
 .skill-header h3 {
@@ -1657,9 +1836,13 @@ html {
 }
 
 .skill-name {
-    min-width: 80px;
+    width: 140px;
+    min-width: 140px;
     font-weight: 500;
     color: var(--text-primary);
+    text-align: right;
+    padding-right: 1rem;
+    font-size: 0.9rem;
 }
 
 .skill-bar {
@@ -1671,14 +1854,34 @@ html {
     position: relative;
 }
 
+.skill-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 4px,
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(255, 255, 255, 0.1) 8px
+    );
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1;
+}
+
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, rgba(16,185,129,0.18) 0%, rgba(16,185,129,0.32) 100%);
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
     border-radius: 4px;
     width: 0;
     transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
     position: relative;
-    box-shadow: 0 2px 8px 0 rgba(16,185,129,0.08);
+    box-shadow: 0 2px 8px 0 rgba(99,102,241,0.2);
+    z-index: 2;
 }
 
 .skill-progress::after {
@@ -1688,13 +1891,14 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(16,185,129,0.12), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     pointer-events: none;
     border-radius: 4px;
-    animation: shimmer-green 2s infinite;
+    animation: shimmer 2s infinite;
+    z-index: 3;
 }
 
-@keyframes shimmer-green {
+@keyframes shimmer {
     0% { opacity: 0.2; }
     50% { opacity: 0.4; }
     100% { opacity: 0.2; }
@@ -1704,14 +1908,21 @@ html {
 
 /* Обновленная временная шкала */
 .timeline-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 .timeline-icon i {
@@ -1787,14 +1998,21 @@ html {
 }
 
 .info-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+}
+
+.info-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 .info-icon i {
@@ -1868,14 +2086,21 @@ html {
 }
 
 .contact-link {
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-    color: var(--primary-hover);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateX(5px);
 }
 
 .contact-form {
@@ -2011,14 +2236,16 @@ html {
 }
 
 .filter-btn.active {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-color: var(--primary-color);
     color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .filter-btn.active:hover {
-    background: var(--primary-hover);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 /* Анимации для scroll-reveal */
@@ -2059,14 +2286,20 @@ html {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: #fff;
     border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
-    box-shadow: 0 4px 16px rgba(99,102,241,0.15);
+    box-shadow: 0 6px 20px rgba(99,102,241,0.3);
+    transition: all 0.3s ease;
+}
+
+.portfolio-intro-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(99,102,241,0.5);
 }
 
 .portfolio-intro-quote {
@@ -2169,22 +2402,27 @@ html {
 }
 
 .extra-info-item i {
-    min-width: 54px;
-    min-height: 54px;
-    width: 54px;
-    height: 54px;
+    min-width: 60px;
+    min-height: 60px;
+    width: 60px;
+    height: 60px;
     font-size: 2.2rem !important;
     line-height: 1 !important;
     color: #fff;
-    background: linear-gradient(135deg, #3b82f6 60%, #8b5cf6 100%);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
     padding: 0;
     margin: 0;
-    box-shadow: 0 2px 8px 0 rgba(59,130,246,0.10);
+    box-shadow: 0 4px 15px rgba(99,102,241,0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s, color 0.3s;
+    transition: all 0.3s ease;
+}
+
+.extra-info-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(99,102,241,0.5);
 }
 .extra-info-item i > svg,
 .extra-info-item i > .fa {
@@ -2385,7 +2623,6 @@ html {
 /* Улучшенные иллюстрации технологий */
 .tech-illustration {
     background: none;
-    color: #60a5fa;
     font-size: 2.5rem;
     box-shadow: none;
     width: auto;
@@ -2397,10 +2634,16 @@ html {
 }
 
 .tech-illustration i {
-    color: #60a5fa;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 2.5rem;
-    background: none;
-    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.tech-illustration:hover i {
+    transform: scale(1.1);
 }
 
 @keyframes gradientShift {
