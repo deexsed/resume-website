@@ -545,7 +545,7 @@
             <h2 class="section-title fade-in-up">Опыт работы</h2>
             <div class="timeline">
                 <div class="timeline-item fade-in-up">
-                    <div class="timeline-content">
+                    <div class="timeline-content experience-card" onclick="showExperienceModal('sistema-center')">
                         <div class="timeline-header">
                             <div class="timeline-icon">
                                 <i class="fas fa-briefcase"></i>
@@ -567,12 +567,16 @@
                                 <span class="tech">TCP/IP</span>
                                 <span class="tech">RS485</span>
                             </div>
+                            <div class="experience-hint">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Нажмите для подробной информации</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item fade-in-up">
-                    <div class="timeline-content">
+                    <div class="timeline-content experience-card" onclick="showExperienceModal('bolid')">
                         <div class="timeline-header">
                             <div class="timeline-icon">
                                 <i class="fas fa-laptop-code"></i>
@@ -594,12 +598,58 @@
                                 <span class="tech">Python</span>
                                 <span class="tech">Django</span>
                             </div>
+                            <div class="experience-hint">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Нажмите для подробной информации</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Модальные окна для опыта работы -->
+    <div id="experienceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeExperienceModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 id="modalCompanyTitle" style="margin-bottom:0.2rem;"></h2>
+                </div>
+                <div class="company-info-row">
+                    <img id="modalCompanyLogo" src="" alt="Логотип компании" class="company-logo">
+                    <div class="modal-company-info">
+                        <span id="modalCompanyName"></span>
+                        <span id="modalCompanyPeriod"></span>
+                        <a id="modalCompanyWebsite" href="#" target="_blank" rel="noopener" class="company-website-link" style="display:inline-flex;align-items:center;margin-top:0.5rem;font-size:1rem;color:var(--primary-color);text-decoration:none;gap:0.4em;">
+                            <i class="fas fa-link"></i> Сайт компании
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="modal-company-description">
+                    <h3>О компании</h3>
+                    <p id="modalCompanyDescription"></p>
+                </div>
+                
+                <div class="modal-responsibilities">
+                    <h3>Обязанности и достижения</h3>
+                    <ul id="modalResponsibilitiesList"></ul>
+                </div>
+                
+                <div class="modal-projects">
+                    <h3>Ключевые проекты</h3>
+                    <ul id="modalProjectsList"></ul>
+                </div>
+                
+                <div class="modal-tech-stack">
+                    <h3>Используемые технологии</h3>
+                    <div id="modalTechStack"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Дополнительная информация -->
     <section class="additional-info">

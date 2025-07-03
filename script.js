@@ -702,10 +702,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-
-
 // Параллакс эффект для фона
 function initParallax() {
     window.addEventListener('scroll', () => {
@@ -1334,6 +1330,160 @@ function animateCounters() {
         updateCounter();
     });
 }
+
+// Данные о компаниях для модальных окон
+const experienceData = {
+    'sistema-center': {
+        title: 'Инженер-программист',
+        company: 'АО "СИСТЕМА-ЦЕНТР"',
+        period: 'Сентябрь 2024 - настоящее время',
+        description: 'АО "СИСТЕМА-ЦЕНТР" - ведущая компания в области разработки и внедрения интеллектуальных транспортных систем. Специализируется на создании высокотехнологичных решений для управления дорожным движением, включая разработку программного обеспечения для дорожных контроллеров и централизованных систем управления.',
+        responsibilities: [
+            'Разработка и доработка серверного приложения для управления дорожными контроллерами',
+            'Создание встраиваемых модулей для микроконтроллеров',
+            'Настройка и оптимизация баз данных для хранения информации о дорожном движении',
+            'Интеграция различных протоколов связи (TCP/IP, RS485)',
+            'Разработка пользовательского интерфейса для операторов системы',
+            'Тестирование и отладка программного обеспечения',
+            'Техническая поддержка и сопровождение внедренных решений'
+        ],
+        projects: [
+            'Система управления дорожными контроллерами - разработка централизованного сервера для управления сетью из N контроллеров',
+            'Встраиваемые модули связи - создание программного обеспечения для микроконтроллеров с поддержкой различных протоколов',
+            'База данных дорожного движения - проектирование и реализация системы хранения и обработки данных о трафике'
+        ],
+        technologies: ['C++', 'Qt5', 'C#', '.NET 8', 'TCP/IP', 'RS485', 'SQLite', 'Git', 'Visual Studio'],
+        logo: 'images/work_logo/sistemaCenter.png',
+        website: 'https://scenter.ru/'
+    },
+    'bolid': {
+        title: 'C++ инженер-разработчик',
+        company: 'Болид, НВП, ЗАО',
+        period: 'Август 2023 - Июль 2024',
+        description: 'Болид, НВП, ЗАО - российская компания, специализирующаяся на разработке и производстве систем безопасности и автоматизации. Компания является одним из лидеров в области создания программно-аппаратных комплексов для систем безопасности, автоматизации зданий и промышленной автоматизации.',
+        responsibilities: [
+            'Разработка программного обеспечения для тестирования и отладки продукции',
+            'Создание веб-приложений для оперативного мониторинга тестовых стендов',
+            'Работа с базами данных для сбора и анализа информации со стендов',
+            'Интеграция различных протоколов связи и интерфейсов',
+            'Оптимизация производительности приложений',
+            'Создание технической документации',
+            'Участие в code review и улучшении качества кода'
+        ],
+        projects: [
+            'Система мониторинга тестовых стендов - веб-приложение на Django для оперативного контроля тестирования продукции',
+            'Программное обеспечение для сбора данных - C++ приложение для получения информации со стендов через различные интерфейсы',
+            'База данных тестовых результатов - проектирование и реализация системы хранения результатов тестирования'
+        ],
+        technologies: ['C++21', 'Boost.Asio', 'MySQL', 'Qt5', 'Python', 'Django', 'Git', 'CMake', 'GCC'],
+        logo: 'images/work_logo/Bolid.jpeg',
+        website: 'https://bolid.ru/'
+    }
+};
+
+// Функция для показа модального окна опыта работы
+function showExperienceModal(companyId) {
+    const modal = document.getElementById('experienceModal');
+    const modalContent = modal.querySelector('.modal-content');
+    const data = experienceData[companyId];
+    
+    if (!data) return;
+    
+    // Заполняем данные модального окна
+    document.getElementById('modalCompanyTitle').textContent = data.title;
+    document.getElementById('modalCompanyName').textContent = data.company;
+    document.getElementById('modalCompanyPeriod').textContent = data.period;
+    document.getElementById('modalCompanyDescription').textContent = data.description;
+    
+    // NEW: логотип и сайт
+    const logoImg = document.getElementById('modalCompanyLogo');
+    logoImg.src = data.logo;
+    logoImg.alt = 'Логотип ' + data.company;
+    logoImg.title = data.company;
+    const siteLink = document.getElementById('modalCompanyWebsite');
+    siteLink.href = data.website;
+    siteLink.title = 'Перейти на сайт компании';
+    
+    // Заполняем обязанности
+    const responsibilitiesList = document.getElementById('modalResponsibilitiesList');
+    responsibilitiesList.innerHTML = '';
+    data.responsibilities.forEach(responsibility => {
+        const li = document.createElement('li');
+        li.textContent = responsibility;
+        responsibilitiesList.appendChild(li);
+    });
+    
+    // Заполняем проекты
+    const projectsList = document.getElementById('modalProjectsList');
+    projectsList.innerHTML = '';
+    data.projects.forEach(project => {
+        const li = document.createElement('li');
+        li.textContent = project;
+        projectsList.appendChild(li);
+    });
+    
+    // Заполняем технологии
+    const techStack = document.getElementById('modalTechStack');
+    techStack.innerHTML = '';
+    data.technologies.forEach(tech => {
+        const span = document.createElement('span');
+        span.className = 'tech';
+        span.textContent = tech;
+        techStack.appendChild(span);
+    });
+    
+    // Показываем модальное окно
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+    
+    // Добавляем анимацию появления
+    setTimeout(() => {
+        modalContent.style.transform = 'translateY(0)';
+        modalContent.style.opacity = '1';
+        modalContent.classList.add('show');
+    }, 10);
+}
+
+// Функция для закрытия модального окна опыта работы
+function closeExperienceModal() {
+    const modal = document.getElementById('experienceModal');
+    const modalContent = modal.querySelector('.modal-content');
+    
+    // Анимация закрытия
+    modalContent.style.transform = 'translateY(-50px)';
+    modalContent.style.opacity = '0';
+    modalContent.classList.remove('show');
+    
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Восстанавливаем скролл страницы
+    }, 300);
+}
+
+// Закрытие модального окна при клике вне его
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('experienceModal');
+    if (event.target === modal && modal.style.display === 'block') {
+        closeExperienceModal();
+    }
+});
+
+// Закрытие модального окна по клавише Escape
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('experienceModal');
+    if (event.key === 'Escape' && modal.style.display === 'block') {
+        closeExperienceModal();
+    }
+});
+
+// Предотвращение закрытия при клике внутри модального окна
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('experienceModal');
+    const modalContent = modal.querySelector('.modal-content');
+    if (event.target === modalContent || modalContent.contains(event.target)) {
+        event.stopPropagation();
+    }
+});
 
 // Инициализация всех анимаций
 document.addEventListener('DOMContentLoaded', function() {
