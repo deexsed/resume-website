@@ -20,13 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // Плавная прокрутка для якорных ссылок
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     });
 });
@@ -123,7 +126,9 @@ function initPortfolioFilters() {
 // Модальное окно для деталей проекта
 function initProjectModal() {
     const modal = document.getElementById('projectModal');
+    if (!modal) return;
     const closeBtn = modal.querySelector('.close');
+    if (!closeBtn) return;
     const detailButtons = document.querySelectorAll('.portfolio-details-btn');
     
     // Данные о проектах
@@ -408,11 +413,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Запуск анимации навыков при загрузке страницы
-window.addEventListener('load', () => {
-    animateSkills();
-});
-
 // Интерактивные карточки портфолио
 document.querySelectorAll('.portfolio-item').forEach(item => {
     item.addEventListener('mouseenter', function() {
@@ -459,29 +459,28 @@ if (experienceSection) {
 // Копирование контактной информации в буфер обмена
 document.querySelectorAll('.contact-item a').forEach(link => {
     link.addEventListener('click', function(e) {
+        // Разрешаем переход по внешним ссылкам (например, GitHub)
         if (this.href.startsWith('mailto:') || this.href.startsWith('tel:')) {
-            return; // Позволяем стандартную обработку для email и телефона
-        }
-        
-        e.preventDefault();
-        const text = this.textContent;
-        
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(text).then(() => {
+            e.preventDefault();
+            const text = this.textContent;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showNotification('Скопировано в буфер обмена!', 'success');
+                }).catch(() => {
+                    showNotification('Не удалось скопировать', 'error');
+                });
+            } else {
+                // Fallback для старых браузеров
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
                 showNotification('Скопировано в буфер обмена!', 'success');
-            }).catch(() => {
-                showNotification('Не удалось скопировать', 'error');
-            });
-        } else {
-            // Fallback для старых браузеров
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            showNotification('Скопировано в буфер обмена!', 'success');
+            }
         }
+        // Для всех остальных ссылок (например, GitHub) — стандартное поведение (переход по ссылке)
     });
 });
 
@@ -689,18 +688,23 @@ function showNotification(message, type = 'success') {
     }, 2000);
 }
 
-// Добавляем обработчики для копирования контактов
-document.addEventListener('DOMContentLoaded', function() {
-    const contactItems = document.querySelectorAll('.contact-item');
-    contactItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const text = this.querySelector('p')?.textContent || this.querySelector('a')?.textContent;
-            if (text) {
-                copyToClipboard(text.trim());
-            }
-        });
-    });
-});
+// Убираем обработчики для копирования контактов
+// document.addEventListener('DOMContentLoaded', function() {
+//     const contactItems = document.querySelectorAll('.contact-item');
+//     contactItems.forEach(item => {
+//         item.addEventListener('click', function(e) {
+//             // Не копируем, если клик был по ссылке
+//             if (e.target.tagName === 'A' || e.target.closest('a')) {
+//                 return;
+//             }
+//             
+//             const text = this.querySelector('p')?.textContent || this.querySelector('a')?.textContent;
+//             if (text) {
+//                 copyToClipboard(text.trim());
+//             }
+//         });
+//     });
+// });
 
 // Параллакс эффект для фона
 function initParallax() {
@@ -983,7 +987,6 @@ function initFormAnimations() {
 // Инициализация всех анимаций
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализируем все анимации
-    initScrollAnimations();
     initParallax();
     init3DCards();
     initModals();
@@ -1181,18 +1184,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('click', function(event) {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    // Если меню не активно — ничего не делаем
+    if (!navMenu || !hamburger) return;
     if (!navMenu.classList.contains('active')) return;
-
-    // Если клик по бургеру или по самому меню — не закрываем
-    if (
-        hamburger.contains(event.target) ||
-        navMenu.contains(event.target)
-    ) {
+    if (hamburger.contains(event.target) || navMenu.contains(event.target)) {
         return;
     }
-
-    // Закрываем меню
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 });
@@ -1479,7 +1475,9 @@ document.addEventListener('keydown', function(event) {
 // Предотвращение закрытия при клике внутри модального окна
 document.addEventListener('click', function(event) {
     const modal = document.getElementById('experienceModal');
+    if (!modal) return;
     const modalContent = modal.querySelector('.modal-content');
+    if (!modalContent) return;
     if (event.target === modalContent || modalContent.contains(event.target)) {
         event.stopPropagation();
     }
